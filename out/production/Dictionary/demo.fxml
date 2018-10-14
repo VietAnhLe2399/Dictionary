@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+    <children>
+        <GridPane layoutY="-8.0" prefHeight="508.0" prefWidth="801.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+        </GridPane>
+        <TabPane prefHeight="500.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <tabs>
+                <Tab text="Dịch từ">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <SplitPane dividerPositions="0.40225563909774437" layoutX="20.0" layoutY="-38.0" prefHeight="461.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                            <children>
+                                                <Pane prefHeight="37.0" prefWidth="317.0" AnchorPane.bottomAnchor="421.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0">
+                                                    <children>
+                                                        <ImageView fitHeight="35.0" fitWidth="60.0" layoutX="14.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="img/UKFlag.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                        <ImageView fitHeight="35.0" fitWidth="60.0" layoutX="130.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="img/VIEFlag.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                        <Button layoutX="225.0" layoutY="3.0" mnemonicParsing="false" text="Switch" />
+                                                    </children>
+                                                </Pane>
+                                                <TextField fx:id="SearchBarWord" layoutY="8.0" maxHeight="10.0" maxWidth="10.0" onMouseClicked="#MouseClickOnSearchBar" promptText="Enter your word here ..." style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #1234A1;" AnchorPane.bottomAnchor="380.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="46.0" />
+                                                <Button layoutX="263.0" mnemonicParsing="false" onAction="#getDefinition" style="-fx-border-radius: 20; -fx-background-radius: 20;" text="Search" AnchorPane.bottomAnchor="380.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="46.0">
+                                                    <effect>
+                                                        <MotionBlur radius="0.0" />
+                                                    </effect>
+                                                </Button>
+                                                <SplitPane dividerPositions="0.5826558265582655" layoutX="56.0" layoutY="88.0" orientation="VERTICAL" prefHeight="371.0" prefWidth="317.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="88.0">
+                                                    <items>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="136.0" prefWidth="315.0">
+                                                            <children>
+                                                                <ListView fx:id="Wordlist" onMouseClicked="#MouseClickOnWord" prefHeight="211.0" prefWidth="315.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                            </children>
+                                                        </AnchorPane>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                                            <children>
+                                                                <Label contentDisplay="CENTER" text="Từ gần đây" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                                <ListView fx:id="RecentWord" prefHeight="459.0" prefWidth="317.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0" />
+                                                            </children>
+                                                        </AnchorPane>
+                                                    </items>
+                                                </SplitPane>
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                            <children>
+                                                <TabPane layoutX="25.0" layoutY="130.0" prefHeight="459.0" prefWidth="473.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                    <tabs>
+                                                        <Tab text="Giải nghĩa">
+                                                            <content>
+                                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <TextArea fx:id="txtDefinition" editable="false" layoutX="114.0" layoutY="32.0" prefHeight="420.0" prefWidth="474.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                   </children>
+                                                                </AnchorPane>
+                                                            </content>
+                                                        </Tab>
+                                                        <Tab text="Đồng nghĩa - Trái nghĩa">
+                                                            <content>
+                                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                            </content>
+                                                        </Tab>
+                                                        <Tab text="Chuyên ngành" />
+                                                    </tabs>
+                                                </TabPane>
+                                            </children>
+                                        </AnchorPane>
+                                    </items>
+                                </SplitPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Dịch câu">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TextArea layoutX="31.0" layoutY="256.0" prefHeight="182.0" prefWidth="739.0" />
+                                <ImageView fitHeight="35.0" fitWidth="60.0" layoutX="192.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="img/UKFlag.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="35.0" fitWidth="60.0" layoutX="307.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="img/VIEFlag.png" />
+                                    </image>
+                                </ImageView>
+                                <TextArea layoutX="31.0" layoutY="14.0" prefHeight="182.0" prefWidth="739.0" />
+                                <Button layoutX="400.0" layoutY="210.0" mnemonicParsing="false" text="Switch button" textAlignment="CENTER" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Từ của bạn">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TabPane layoutY="1.0" prefHeight="461.0" prefWidth="677.0" style="-fx-border-color: #3e6cb7;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="124.0" AnchorPane.topAnchor="0.0">
+                                    <tabs>
+                                        <Tab>
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="411.0" prefWidth="661.0">
+                                                    <children>
+                                                        <ListView layoutY="38.0" prefHeight="119.0" prefWidth="661.0" AnchorPane.bottomAnchor="227.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0" />
+                                                        <Button layoutX="348.0" layoutY="14.0" mnemonicParsing="false" onAction="#SubmitUrEngWord" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #1234A1;" text="Search" AnchorPane.rightAnchor="280.0" AnchorPane.topAnchor="5.0">
+                                                            <effect>
+                                                                <MotionBlur radius="0.0" />
+                                                            </effect>
+                                                        </Button>
+                                                        <TextField fx:id="SearchBarUrEngWord" layoutX="11.0" layoutY="6.0" maxHeight="30.0" maxWidth="330.0" prefHeight="30.0" prefWidth="370.0" promptText="Enter your word here ..." style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #1234A1;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="3.0" />
+                                                        <TabPane layoutY="158.0" prefHeight="228.0" prefWidth="661.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="158.0">
+                                                            <tabs>
+                                                                <Tab text="Ghi chú:">
+                                                                    <content>
+                                                                        <TextArea prefHeight="200.0" prefWidth="200.0" />
+                                                                    </content>
+                                                                </Tab>
+                                                            </tabs>
+                                                        </TabPane>
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                            <graphic>
+                                                <ImageView fitHeight="35.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="img/UKFlag.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </Tab>
+                                        <Tab>
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                    <children>
+                                                        <ListView layoutY="38.0" prefHeight="119.0" prefWidth="661.0" AnchorPane.bottomAnchor="227.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0" />
+                                                        <Button layoutX="348.0" layoutY="14.0" mnemonicParsing="false" onAction="#SubmitUrVieWord" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #1234A1;" text="Search" AnchorPane.rightAnchor="280.0" AnchorPane.topAnchor="5.0">
+                                                            <effect>
+                                                                <MotionBlur radius="0.0" />
+                                                            </effect>
+                                                        </Button>
+                                                        <TextField fx:id="SearchBarUrVieWord" layoutX="11.0" layoutY="6.0" maxHeight="30.0" maxWidth="330.0" prefHeight="30.0" prefWidth="370.0" promptText="Enter your word here ..." style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #1234A1;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="3.0" />
+                                                        <TabPane layoutY="158.0" prefHeight="228.0" prefWidth="661.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="158.0">
+                                                            <tabs>
+                                                                <Tab text="Ghi chú:">
+                                                                    <content>
+                                                                        <TextArea prefHeight="200.0" prefWidth="200.0" />
+                                                                    </content>
+                                                                </Tab>
+                                                            </tabs>
+                                                        </TabPane>
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                            <graphic>
+                                                <ImageView fitHeight="35.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="img/VIEFlag.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </Tab>
+                                    </tabs>
+                                </TabPane>
+                                <Button layoutX="690.0" layoutY="14.0" mnemonicParsing="false" text="Add Word" AnchorPane.rightAnchor="18.0" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Cài đặt">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <Accordion layoutX="14.0" layoutY="14.0" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>
