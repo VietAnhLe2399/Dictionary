@@ -10,9 +10,9 @@ public class WriteData {
         writer.close();
     }
 
-    public static void WriteDataToRecentWord(Word w) throws IOException {
+    public static void WriteDataToRecentWord(String w) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter("src\\data\\RecentWord.txt", true));
-        writer.append(w.getWord_target() + "\t" + w.getWord_explain() + "\n");
+        writer.append(w + "\n");
 
         writer.close();
     }

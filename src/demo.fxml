@@ -45,6 +45,7 @@
                                                             </image>
                                                         </ImageView>
                                                         <Button layoutX="225.0" layoutY="3.0" mnemonicParsing="false" text="Switch" />
+                                          <Label layoutX="92.0" layoutY="13.0" text="to" />
                                                     </children>
                                                 </Pane>
                                                 <TextField fx:id="SearchBarWord" layoutY="8.0" maxHeight="10.0" maxWidth="10.0" onMouseClicked="#MouseClickOnSearchBar" promptText="Enter your word here ..." style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #1234A1;" AnchorPane.bottomAnchor="380.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="46.0" />
@@ -63,7 +64,7 @@
                                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                                             <children>
                                                                 <Label contentDisplay="CENTER" text="Từ gần đây" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                                                <ListView fx:id="RecentWord" prefHeight="459.0" prefWidth="317.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0" />
+                                                                <ListView fx:id="RecentList" prefHeight="459.0" prefWidth="317.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0" />
                                                             </children>
                                                         </AnchorPane>
                                                     </items>
@@ -78,7 +79,9 @@
                                                             <content>
                                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                    <children>
-                                                      <TextArea fx:id="txtDefinition" editable="false" layoutX="114.0" layoutY="32.0" prefHeight="420.0" prefWidth="474.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                      <TextArea fx:id="txtDefinition" editable="false" layoutX="114.0" layoutY="39.0" prefHeight="381.0" prefWidth="474.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="39.0" />
+                                                      <Button fx:id="AddToYourWord" layoutX="334.0" layoutY="4.0" mnemonicParsing="false" text="Add to your word" />
+                                                      <Button layoutX="284.0" layoutY="4.0" mnemonicParsing="false" onAction="#EditMeaning" text="Edit" />
                                                    </children>
                                                                 </AnchorPane>
                                                             </content>

@@ -12,6 +12,7 @@ import javafx.scene.input.MouseEvent;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -26,6 +27,9 @@ public class Controller implements Initializable {
 
     @FXML
     public static final ObservableList<String> WordListobserList = FXCollections.observableArrayList();
+
+    @FXML
+    private Button AddToYourWord;
 
     @FXML
     ListView Wordlist = new ListView(WordListobserList);
@@ -70,6 +74,23 @@ public class Controller implements Initializable {
         alert.show();
     }
 
+    /**
+     * Open Alert to edit Meaning
+     */
+    public void EditMeaning(ActionEvent event){
+        String wordToDefine = SearchBarWord.getText();
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("Thay đổi nghĩa của từ");
+        dialog.setHeaderText("Bạn có chắc chắn muốn thay đổi không");
+        dialog.setContentText("Nhập vào nghĩa mới: ");
+
+        Optional<String> result = dialog.showAndWait();
+        if (result.isPresent()){
+            String newMeaning =  result.get();
+            dictionary.put(wordToDefine, newMeaning);
+        }
+    }
+
     @FXML
     void getDefinition() {
         try {
@@ -79,8 +100,7 @@ public class Controller implements Initializable {
             txtDefinition.setText("");
             txtDefinition.appendText(dictionary.get(wordToDefine));
             try {
-                Word word = new Word(wordToDefine, dictionary.get(wordToDefine));
-                WriteData.WriteDataToRecentWord(word);
+                WriteData.WriteDataToRecentWord(wordToDefine);
             } catch (Exception e) {
                 System.out.println("Word is already in the RecentWord file");
             }
@@ -90,8 +110,8 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    void addRecentWord(String s){
-        
+    void addRecentWord(String s) {
+
     }
 
     @Override
@@ -103,7 +123,10 @@ public class Controller implements Initializable {
         }
         SortedList<String> sortedList = new SortedList(WordListobserList);
         Wordlist.setItems(sortedList.sorted());
-        RecentList.setItems(sortedList.sorted());
+
+        for (String w : RecentWords)
+            RecentListobserList.add(w);
+        RecentList.setItems(RecentListobserList);
     }
 
     /**
